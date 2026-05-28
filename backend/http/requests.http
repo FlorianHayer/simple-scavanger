@@ -1,0 +1,2 @@
+GET http://localhost:8080/api/questions/summaries/random
+Content-Type: application/json
