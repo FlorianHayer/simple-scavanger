@@ -1,5 +1,5 @@
 # H2 Database scripts
-h2-server-create.sh
+./h2-server-create.sh
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij,git
