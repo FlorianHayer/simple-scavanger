@@ -9,7 +9,7 @@ class ViewModel: ObservableObject {
     init(model: Model) {
         self.model = model
     }
-        
+    
     var questions: [QuestionSummary] {
         get {
             model.questions
@@ -19,9 +19,12 @@ class ViewModel: ObservableObject {
         }
     }
     
+    @Published
+    var randomQuestion: QuestionSummary?
+    
     private var baseUrl = "http://localhost:8080/api/"
     
-    func getAllQuestions() {
+    func fetchAllQuestionSummaries() {
         let url = baseUrl + "questions/summaries/0"
         
         guard let url = URL(string: url) else {
@@ -42,5 +45,22 @@ class ViewModel: ObservableObject {
             }
         }.resume()
     }
+    
+    
 
+    func fetchRandomQuestion() async {
+        let url = baseUrl + "questions/summaries/random"
+        guard let url = URL(string: url) else { return }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let question = try JSONDecoder().decode(QuestionSummary.self, from: data)
+            self.randomQuestion = question
+        } catch {
+            print("Failed: \(error)")
+        }
+    }
+    
+    
+    
 }

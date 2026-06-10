@@ -11,7 +11,7 @@ struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        QuestionListView(viewModel: viewModel)
+        HomeView(viewModel: viewModel)
     }
 }
 

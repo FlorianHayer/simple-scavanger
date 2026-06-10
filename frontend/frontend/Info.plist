@@ -7,5 +7,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>Privacy — Camera Usage Description</key>
+	<string>Camera Usage</string>
+	<key>Privacy — Photo Library Usage Description</key>
+	<string>Photo Library Usasge</string>
 </dict>
 </plist>
